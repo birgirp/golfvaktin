@@ -1,0 +1,18 @@
+input[type="text"], input[type="password"] {
+	
+	font-size:				1.08em;
+	color:					#696969;
+	
+	height:					auto;
+
+	box-shadow:				1px 1px 4px -1px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow:		1px 1px 4px -1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:		1px 1px 4px -1px rgba(0, 0, 0, 0.2);
+
+	border:					1px #d4d4d4 solid;
+	border-radius:			3px;
+	-moz-border-radius:		3px;
+	-webkit-border-radius:	3px;
+
+	padding:				5px;
+}

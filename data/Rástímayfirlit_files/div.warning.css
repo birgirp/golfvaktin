@@ -1,0 +1,24 @@
+div.warning {
+	background-color: #FBB214;
+	text-align:		center;
+
+	border-radius: 4px;
+	padding: 		0.5em;
+}
+
+div.warning span {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight:	600;
+	font-size: 1.23em;
+
+	line-height: 2.125em !important;
+
+	text-shadow: #666 1px 1px 1px;
+
+	color: #fff;
+
+	vertical-align: 50%; !important;
+
+	padding-left: 1em;
+	padding-right: 1em;
+}

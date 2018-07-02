@@ -1,0 +1,85 @@
+.zoom30 {
+	font-size: 125% !important;
+	/* IE */
+	/* zoom: 1.3; */
+
+	/* Firefox */
+	/* -moz-transform: scale(1.3); */
+	/* -moz-transform-origin: 0 0; */
+	/* Opera */
+	/* -o-transform: scale(1.3); */
+	/* -o-transform-origin: 0 0; */
+}
+
+.zoom30 input {
+	font-size: 125% !important;
+	height: auto !important;
+}
+
+.zoom30 div.warning span {
+	vertical-align: 35%;
+}
+
+.zoom30 table td {
+	width: 50%;
+}
+
+.extendedButton {
+	text-align:				center;
+	width:					100%;
+	margin-left: 			0 !important;
+	border: none;
+}
+
+div.loginButtons div.cell {
+	display:	block;
+}
+
+div.loginButtons div.row {
+	display:	block;
+}
+
+div.loginFailedLayer {
+	display:	none;
+}
+
+div.warning {
+	margin-bottom: 1em;
+}
+
+div.warningInfo {
+	background-color:	#FEE8C1;
+	text-align:			center;
+	padding:			10px;
+	border-radius:		4px;
+	margin-bottom:		15px;
+}
+
+.registrationButton {
+	margin-left: 150px;
+	width: 215px;
+	text-align: center;
+}
+
+.reminderButton {
+	margin-right:	45px;
+	width: 215px;
+	text-align: center;
+}
+
+.half {
+	width: 50% !important;
+}
+
+.login.loggedOut .cell label {
+	margin-right: 1em;
+}
+
+.login.loggedOut .cell input {
+	width: auto !important; 
+	min-width: 320px;
+}
+
+form#golfLoginEmailer div.buttonLayer {
+	margin: 0;
+}

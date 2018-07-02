@@ -1,0 +1,293 @@
+/** idegaWeb Core CSS classes **/
+form {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+iframe {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 0;
+}
+
+/** BEGIN: Style for com.idega.presentation.CSSSpacer element used in the beginning and end of containers that use float-ing elements**/
+.spacer {
+	clear: both;
+}
+
+/** END: Style for com.idega.presentation.CSSSpacer **/ /** BEGIN: loadLayer: **/
+DIV.LoadLayerOld {
+	visibility: hidden;
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	background-color: #FFFFFF;
+	color: inherit;
+	border-style: ridge;
+	border-color: #cbcbcb;
+	border-width: 2px;
+	padding-top: 4px;
+	padding-left: 8px;
+	padding-right: 12px;
+	padding-bottom: 4px;
+	top: 48%;
+	left: 45%;
+}
+
+.LoadLayer {
+	left: 0;
+	top: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 9999 !important;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background: url(/idegaweb/bundles/com.idega.core.bundle/resources/style/images/transparent.png);
+}
+
+.LocalLoadLayer {
+	visibility: hidden;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	filter: none;
+	background: url(/idegaweb/bundles/com.idega.core.bundle/resources/style/images/transparent.png);
+	z-index: 9999 !important;
+}
+
+.LocalLoadLayer .LoadingImage {
+	position: relative;
+	top: 21px;
+	left: 0px;
+}
+
+.LoadLayer .LoadLayerMiddle,.LocalLoadLayer .LoadLayerMiddle {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	text-align: center;
+	height: 74px;
+}
+
+.LocalLoadLayer .LoadLayerMiddle .LoadLayerContents {
+	height: 74px;
+	margin: 0 auto;
+	position: relative;
+	top: -50%;
+	padding: 0px 0px;
+	width: 74px;
+	background: url(/idegaweb/bundles/com.idega.core.bundle/resources/style/images/whiteTransparentSmall.png);
+}
+
+.LoadLayer .LoadLayerMiddle .LoadLayerContents {
+	height: 54px;
+	margin: 0 auto;
+	position: relative;
+	top: -50%;
+	padding: 10px 20px;
+	width: 191px;
+	background: url(/idegaweb/bundles/com.idega.core.bundle/resources/style/images/whitetransparent.png);
+}
+
+.LoadLayer .LoadLayerMiddle .LoadLayerContents #loadingimage {
+	display: none;
+}
+
+.LoadLayer .LoadLayerMiddle .LoadLayerContents #loadingtext {
+	line-height: 54px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	color: inherit;
+	padding-left: 22px;
+	background: url(/idegaweb/bundles/com.idega.core.bundle/resources/loading_notext.gif) left no-repeat;
+}
+
+/** END: loadlayer **/ /** BEGIN: IWApplicationComponent classes **/
+.iw_applicationcomponent {
+	font-family: Verdana, Sans-serif;
+	font-size: 10px;
+	background-color: #E1E1E1;
+	color: inherit;
+	margin: 0px;
+	border-color: black;
+	border-width: 2px;
+	width: 100%;
+	height: 100%;
+}
+
+/** END: IWApplicationComponent classes **/ /** Tooltips starts **/
+.tool-tip {
+	color: #fff;
+	max-width: 220px;
+	z-index: 13000;
+	background-color: #000;
+	-moz-border-radius: 5px;
+}
+
+.tool-title {
+	font-weight: bold;
+	font-size: 11px;
+	margin: 0;
+	color: #9FD4FF;
+	padding: 8px 8px 4px;
+}
+
+.tool-text {
+	font-size: 11px;
+	padding: 4px 8px 8px;
+}
+
+.custom-tip {
+	color: #000;
+	width: 130px;
+	z-index: 13000;
+}
+
+.custom-title {
+	font-weight: bold;
+	font-size: 11px;
+	margin: 0;
+	color: #3E4F14;
+	padding: 8px 8px 4px;
+	background: #C3DF7D;
+	border-bottom: 1px solid #B5CF74;
+}
+
+.custom-text {
+	font-size: 11px;
+	padding: 4px 8px 8px;
+	background: #CFDFA7;
+}
+
+/** Tooltips ends **/ /** Hiding theme's expander **/
+div#idegaThemeExpandRegion {
+	display: none;
+}
+
+li.hiddenPageInNavigationMenu {
+	display: none !important;
+}
+
+span.blockedContentWithLoadingLayer {
+	background: transparent url(images/loading.gif) no-repeat scroll left center;
+	color: inherit;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	line-height: 54px;
+	padding-left: 30px;
+}
+
+div.fileDownloadStatisticsNotificationContainer {
+	float: right;
+	margin-top: 15px;
+	padding-right: 5px;
+}
+
+div.outdatedBrowserInformation {
+	border: 1px solid #F7941D;
+	background: #FEEFDA;
+	text-align: center;
+	clear: both;
+	height: 75px;
+	position: relative;
+}
+
+div.outdatedBrowserInformationCloser {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	font-family: courier new;
+	font-weight: bold;
+}
+
+img.outdatedBrowserInformationCloserImage {
+	border: none;
+}
+
+div.outdatedBrowserInformationContent {
+	width: 640px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 0;
+	overflow: hidden;
+	color: black;
+}
+
+div.outdatedBrowserInformationContentWarningContainer {
+	width: 75px;
+	float: left;
+}
+
+img.outdatedBrowserInformationContentWarningImage {
+}
+
+div.outdatedBrowserInformationContentText {
+	width: 250px;
+	float: left;
+	font-family: Arial, sans-serif;
+}
+
+.outdatedBrowserInformationContentTextHeading {
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 12px;
+}
+
+.outdatedBrowserInformationContentTextBody {
+	font-size: 12px;
+	margin-top: 6px;
+	line-height: 12px;
+}
+
+.outdatedBrowserInformationFirefox {
+	width: 75px;
+	float: left;
+}
+.outdatedBrowserInformationFirefoxImage {
+	border: none;
+	width: 75px;
+}
+	
+.outdatedBrowserInformationIE {
+	width: 75px;
+	float: left;
+}
+.outdatedBrowserInformationIEImage {
+	border: none;
+	width: 75px;
+}
+
+.outdatedBrowserInformationSafari {
+	width: 75px;
+	float: left;
+}
+.outdatedBrowserInformationSafariImage {
+	border: none;
+	width: 75px;
+}
+
+.outdatedBrowserInformationChrome {
+	float: left;
+}
+.outdatedBrowserInformationChromeImage {
+	border: none;
+	width: 75px;
+}
+
+.hidePageContent {
+	display: none;
+}
+
+.showPageContent {
+	display: block !important;
+}

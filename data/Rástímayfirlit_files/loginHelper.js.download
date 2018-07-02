@@ -1,0 +1,70 @@
+jQuery(document).ready(function() {
+	var loginModules = jQuery(".login.loggedOut");
+	if (loginModules != null && loginModules.length > 0) {
+		loginModules.each(function() {
+			var content = jQuery(this).parent("section#content");
+			if (content != null && content.length > 0) {
+				content.siblings("aside#sidebar").addClass("zoom30");
+				content.addClass("half");
+			}
+		});
+	}
+});
+
+var GolfLoginHelper = {
+		hideWarnings:	function () {
+			jQuery(".loginFailedLayer").each(function() {
+				var warning = jQuery(this);
+				warning.slideUp(500);
+			});
+		},
+
+		login:	function(event) {
+			event.preventDefault();
+
+			var form = null;
+			var target = jQuery(event.currentTarget);
+			if (target != null && target.length > 0) {
+				/*
+				 * Use jQuery().parent('form') when available
+				 */
+				form = jQuery(target).parent().parent().parent().parent().parent();
+			}
+
+			var username = null;
+			var usernameInput = jQuery('input[name="login"]', form);
+			if (usernameInput != null && usernameInput) {
+				username = usernameInput.val();
+			}
+
+			var password = null;
+			var passwordInput = jQuery('input[name="password"]', form);
+			if (passwordInput != null && passwordInput) {
+				password = passwordInput.val();
+			}
+
+			var webMethod = "/golf/login";
+
+			jQuery.ajax({
+				type : "GET",
+				url : webMethod,
+				contentType : "application/json; charset=utf-8",
+				dataType : "json",
+				beforeSend: function (request) {
+	                request.setRequestHeader("username", username);
+	                request.setRequestHeader("password", password);
+	            },
+
+				success : function(result) {
+					jQuery(form).submit();
+				},
+
+				error : function(error) {
+					jQuery(".loginFailedLayer").each(function() {
+						var warning = jQuery(this);
+						warning.slideDown(500);
+					});
+				}
+			});
+		}
+}

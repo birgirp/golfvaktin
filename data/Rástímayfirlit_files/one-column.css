@@ -1,0 +1,41 @@
+#sidebar,
+#pluginSidebar,
+#bottomLinks {
+  display: none;
+}
+
+body section#main nav#subNavigation {
+  float:none;
+  position: relative;
+  width: auto;
+}
+
+section#main nav#subNavigation ul {
+  background-color: #F9F9F9;
+  border-bottom: 1px solid #E6E7E8;
+  height: 48px;
+  width: 100%;  
+}
+
+section#main nav#subNavigation ul li {
+  border-right: 1px solid #E6E7E8;
+  border-bottom: 0;
+  float: left;
+}
+
+section#main nav#subNavigation ul li a {
+    color: #3D3D3D;
+    display: block;
+    font-family: "prelo-slab",Arial,Helvetica,sans-serif;
+    font-size: 1.231em;
+    font-weight: 400;
+    line-height: 48px;
+    padding: 0 24px;
+    text-decoration: none;
+}
+
+section#main nav#subNavigation ul li.current a {
+    background-color: #FFFFFF;
+    height: 49px;
+  margin-right: 0;
+}

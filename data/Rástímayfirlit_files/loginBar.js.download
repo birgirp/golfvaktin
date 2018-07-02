@@ -1,0 +1,58 @@
+jQuery.noConflict();
+
+jQuery(document).ready(function() {
+	jQuery('.loginButtons-login').click(function(event) {
+		event.preventDefault();
+		
+		jQuery('.loginButtons .loggedOut').toggle();
+		jQuery('.loginButtons .loggedOut form input[name="login"]').focus();
+	});
+
+	jQuery('.registerArrivedUser').click(function(event) {
+		event.preventDefault();
+		
+		jQuery('div.pop-up ').toggle();
+		jQuery('div.pop-up input#personal_id').focus();
+	});
+	
+	var loggedInContainer = jQuery('div.submit', 'div.loggedIn');
+	if (loggedInContainer != null) {
+		loggedInContainer.parent().attr('onsubmit', 'return false;');
+		
+		jQuery('a.button', loggedInContainer).attr('href', 'javascript:void(0);');
+		
+		jQuery('a.button', loggedInContainer).click(function() {
+			showLoadingMessage('');
+			LazyLoader.loadMultiple(['/dwr/engine.js','/dwr/interface/WebUtil.js', '/idegaweb/bundles/is.idega.idegaweb.golf.bundle/resources/javascript/jquery.cookie.js'], function() {
+				WebUtil.logOut({
+					callback: function(result) {
+						var cookies = ['accessToken', 'refreshToken', 'username', 'JSESSIONID'];
+						for (var i = 0; i < cookies.length; i++) {
+							jQuery.removeCookie(cookies[i], { path: '/' });
+						}
+						
+						window.location.href= result == null || result == '' ? '/pages' : result;
+					}
+				});
+			});
+		});
+	}
+});
+
+function enterSubmit(myfield,e) {
+	var keycode;
+	
+	if (window.event)
+		keycode = window.event.keyCode;
+	else if (e)
+		keycode = e.which;
+	else
+		return true;
+	
+	if (keycode == 13) {
+		myfield.form.submit();
+		return false;
+	}
+	else
+		return true;
+}
