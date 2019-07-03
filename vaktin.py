@@ -4,13 +4,22 @@ import smtplib
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
-def send_email( tee_time, freeslots):
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--start-maximized')
+driver = webdriver.Chrome('chromedriver', options=chrome_options)
+
+
+def send_email(tee_time, freeslots):
     sender = 'golfvaktin@golfvaktinmin.is'
     receivers = ['birgir.palsson@gmail.com']
 
-    message =  'Available tee time at ' + str(tee_time) + ' for ' + str(freeslots)+ ' persones.'
- 
+    message = 'Available tee time at ' + str(tee_time) + ' for ' + str(freeslots) + ' persones.'
 
     try:
         smtpObj = smtplib.SMTP('smtp.gmail.com:587')
@@ -23,7 +32,8 @@ def send_email( tee_time, freeslots):
     except smtplib.SMTPException:
         print("Error: unable to send email")
 
-def empty_slots( tees ):
+
+def empty_slots(tees):
     s = 0
     for index, row in tees.iterrows():
         if not row["name"]:
@@ -31,22 +41,35 @@ def empty_slots( tees ):
 
     return s
 
+
 def find_slot():
-    dags = '2018-07-01'
+    dags = '2019-07-02'
+    d = datetime.date(2019, 7, 4)
+
+    unixtime = time.mktime(d.timetuple())
+
+    unixtime = int(unixtime * 1000)
+    print(unixtime)
     gr = 100
     grafarholt = 49
     korpa = 50
     start_time = 1000
-    end_time = 1340
+    end_time = 2100
     players = 1
     found_slots = False
 
-    url = "http://mitt.golf.is/pages/rastimar/rastimayfirlit/?hvenaer=0&hvar=" + str(
-        grafarholt) + "&search=1&club=100&day=" + dags
-    r = requests.get(url)
+    url = "https://mitt.golf.is/dashboard/teetimes?fieldId=" + str(korpa) + "&date=" + str(unixtime)
+    driver.get(url)
 
-    soup = BeautifulSoup(r.content, "html5lib")
+    soup = BeautifulSoup(driver.page_source, "html5lib")
+
+    print(soup)
     tbody = soup.find_all("tbody")
+
+    #  driver.get("https://mitt.golf.is/api/teetimes?fieldId=49&date=1562025600000")
+
+    # print(driver.page_source)
+
     len(tbody)
     tbody = tbody[0]  # since find_all above returns a list
 
@@ -87,13 +110,14 @@ def find_slot():
     for ttime in times:
         tee_time = df.query('time==@ttime')
         e = empty_slots(tee_time)
-        #print(str(ttime) + ': ' + str(e))
+        # print(str(ttime) + ': ' + str(e))
         if e >= players:
             send_email(ttime, e)
             found_slots = True
             break
 
     return found_slots
+
 
 def main():
     print("Starting...")
@@ -104,7 +128,6 @@ def main():
         time.sleep(60)
     print("Done - email sent...")
 
-if __name__== "__main__":
-  main()
 
-
+if __name__ == "__main__":
+    main()
